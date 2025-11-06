@@ -1,8 +1,9 @@
 {
-  "buildCommand": "npm run build",
+  "version": 2,
+  "buildCommand": "cd . && npm install && npm run build",
   "outputDirectory": ".next",
-  "installCommand": "npm install",
-  "framework": "nextjs",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": null,
   "rewrites": [
     {
       "source": "/api/:path*",
