@@ -36,12 +36,21 @@ export default function ProductDetailPage() {
 
   const fetchProduct = async () => {
     try {
+      if (!params.id) {
+        setProduct(null);
+        setLoading(false);
+        return;
+      }
       const res = await fetch(`/api/products`);
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
       const products = await res.json();
       const foundProduct = products.find((p: Product) => p.id === params.id);
       setProduct(foundProduct || null);
     } catch (error) {
       console.error("Məhsul məlumatları gətirilə bilmədi:", error);
+      setProduct(null);
     } finally {
       setLoading(false);
     }
