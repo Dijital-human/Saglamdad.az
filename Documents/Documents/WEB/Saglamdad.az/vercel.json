@@ -5,6 +5,13 @@
       "destination": "/api/:path*"
     }
   ],
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
